@@ -68,6 +68,13 @@ LOCAL_C_INCLUDES := \
 
 LOCAL_MODULE:= libui
 
+ifeq ($(TARGET_BOARD_PLATFORM),sun4i)
+    LOCAL_CFLAGS += -DALLWINNER_HARDWARE
+    LOCAL_SRC_FILES += DisplayDispatcher.cpp \
+        DisplaySemaphore.cpp
+endif
+
+
 include $(BUILD_SHARED_LIBRARY)
 
 
